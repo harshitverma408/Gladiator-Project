@@ -1,0 +1,48 @@
+form {
+    box-align: center;
+    width: 30%;
+    margin: auto;
+    padding-top: 10%;
+    font-weight: bolder;
+  }
+
+h2{
+    text-align: center;
+    border:solid black 5px;
+    padding: 1%;
+    font-size: 25px;
+}
+button{
+    margin-left: 40%;
+ }
+ .container-one{
+     padding-top:5%;
+ }
+
+ .login-pw{
+     padding-top:5%;
+     
+ }
+
+.submit-button{
+    margin-top: 3%;
+}
+.text-block{
+    display:inline-block;
+
+}
+.last-logged-in,.last-logged-in-time{
+    /* display:inline-block; */
+    float: right;
+
+}
+.suggestions-block{
+    padding-top:15%;
+
+}
+.suggestions-text{
+   font-weight: 800;
+}
+td{
+    font-weight: 600;
+}
