@@ -1,0 +1,17 @@
+form {
+    box-align: center;
+    width: 30%;
+    margin: auto;
+    padding-top: 10%;
+  }
+
+h2{
+    text-align: center;
+    border:solid black 5px;
+    padding: 1%;
+}
+table{
+    margin: auto;
+    font-style: italic;
+    font-size: large;
+}
