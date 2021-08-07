@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <form>
+        <h2>Open A Savings Account</h2>
+        <br>
+        <h3 class="personal-details">Personal Details</h3>
+        <br>
+    
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Title*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter title here (Mr./Mrs./Ms.)">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">First Name*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your First Name">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Middle Name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your Middle Name">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Last Name*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your Last Name">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Father's Name*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Father's Name">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Mobile Number*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your Mobile Number">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Email ID</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Email ID">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Aadhar Card Number</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Aadhar Number">
+      </div>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Date of Birth*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Date of Birth">
+      </div>
+      
+      <br>
+      <h3 class="residential-address">Residential Address</h3>
+      <br>
+      
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">a) Address Line 1*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Address line 1">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">b) Address Line 2*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Address line 2">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">c) Landmark</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter a Landmark">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">d) State*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter State">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">e) City*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter City">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">f) Pincode*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Pincode">
+      </div>
+      
+      <br>
+      <h3 class="permanent-address">Permanent Address</h3>
+      <br>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Permanent Address same as Mailing Address
+        </label>
+      </div>
+      <br>
+
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">a) Address Line 1*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Address line 1">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">b) Address Line 2*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Address line 2">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">c) Landmark</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Landmark">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">d) State*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter State">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">e) City*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter City">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">f) Pincode*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Pincode">
+      </div>
+      
+      <br>
+      <h3 class="plain-text">Occupation Details</h3>
+      <br>
+
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">a) Occupation Type*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Occupation Type(make a dropdown here)">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">b) Source of Income*</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="(make a dropdown here)">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">c) Gross Annual Income</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="(make a dropdown here))">
+      </div>
+      
+      <br>
+      <h3 class="plain-text">Debit/ATM Card</h3>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Apply for a Debit Card
+        </label>
+      </div>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Opt for Net Banking 
+        </label>
+      </div>
+      
+      <br>
+      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Submit Response">
+        Submit
+      </button>
+ 
+    </form>
+</body>
+</html>

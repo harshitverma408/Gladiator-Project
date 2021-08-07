@@ -1,0 +1,26 @@
+form {
+    box-align: center;
+    width: 50%;
+    margin: auto;
+    padding-top: 4%;
+    padding-bottom: 5%;
+    font-weight: bolder;
+
+  }
+
+h2{
+    text-align: center;
+    border:solid black 5px;
+    padding: 1%;
+}
+.padding{
+    padding-top: 1%;
+    margin-top: 3%;
+}
+
+h3{
+    text-decoration: underline;
+}
+button{
+    margin-left: 40%;
+}
