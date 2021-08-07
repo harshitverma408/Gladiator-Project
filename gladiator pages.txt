@@ -1,0 +1,24 @@
+home, login , register for internet banking , open an account ,forget user id , forgot password page,
+set new password , dashoboard,account statement , set new  transaction password , session expired  ,add payee,  
+
+
+
+login done
+
+harshit :
+register for internet banking 
+open savings account 
+
+pritesh :
+dashoboard , account statement , home ,set new password, set new  transaction password ,session expired,add payee,transfer successful,
+
+
+nikhila:
+3 transaction pages 
+
+
+gopi:
+forgot user id, forgot password 
+
+
+//please let know if any page is missing :)
