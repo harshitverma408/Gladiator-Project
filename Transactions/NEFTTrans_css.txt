@@ -1,0 +1,17 @@
+form {
+    box-align: center;
+    width: 30%;
+    margin: auto;
+    padding-top: 4%;
+    font-weight: bolder;
+  }
+
+h2{
+    text-align: center;
+    border:solid black 5px;
+    padding: 1%;
+}
+.padding{
+    padding-top: 1%;
+    margin-top: 3%;
+}
