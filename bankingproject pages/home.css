@@ -1,0 +1,60 @@
+form {
+    box-align: center;
+    width: 60%;
+    margin: auto;
+    padding-top: 4%;
+    font-weight: bolder;
+  }
+ 
+h2{
+    
+    text-align: center;
+    border:solid black 5px;
+    padding: 1%;
+}
+
+ .main-div{
+    padding-top: 2%;
+}
+
+.left-block{
+    width: 23%;
+    display: inline-block;
+   
+    padding-top:5%;
+    padding-bottom: 5%;
+    /* margin-top: 5%; */
+
+}
+.mid-block{
+    width: 43%;
+    display: inline-block;
+   
+    padding-top:5%;
+    padding-bottom: 5%;
+
+}
+.right-block{
+    width: 34%;
+    float: right;
+    
+    padding-top:5%;
+    padding-bottom: 5%;
+
+}
+ .right-div{
+    border:solid black 1px;
+    width:80%
+}
+.mid-div {
+    /* border:solid black 1px; */
+    /* width:80% */
+    text-align: center;
+}
+td{
+    cursor: pointer;
+}
+table{
+    margin-top: 4%;
+    margin-bottom:5%;
+}
