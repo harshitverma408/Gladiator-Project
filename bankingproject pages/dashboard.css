@@ -1,0 +1,31 @@
+form {
+    box-align: center;
+    width: 60%;
+    margin: auto;
+    padding-top: 4%;
+    font-weight: bolder;
+  }
+
+h2{
+    text-align: center;
+    border:solid black 5px;
+    padding: 1%;
+}
+.main-div{
+    padding-top: 2%;
+}
+.left-block{
+    width: 15%;
+    display: inline-block;
+    border:solid black 5px;
+    padding-top:5%;
+    padding-bottom: 5%;
+    /* margin-top: 5%; */
+}
+.navi-menu{
+    width:85%;
+    float: right;
+}
+td{
+    cursor: pointer;
+}
