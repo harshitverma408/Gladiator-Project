@@ -1,0 +1,166 @@
+
+DROP TABLE CUSTOMERDETAILS;
+DROP TABLE RESIDENTIALADDRESS;
+DROP TABLE PERMANENTADDRESS;
+DROP TABLE ACCOUNTDETAILS;
+DROP TABLE ADMIN;
+DROP TABLE TRANSACTION;
+DROP TABLE APPROVAL;
+DROP TABLE PAYEE;
+
+
+
+
+
+
+
+
+
+Create table CustomerDetails(CustId int PRIMARY KEY, Title varchar2(50),FirstName varchar2(50), MiddleName varchar2(50), LastName varchar2(50),MobileNumber varchar2(10), 
+                      Email varchar2(50), AadharNumber int, DOB date, InitialAmount float, OccupationType varchar2(50), IncomeSource varchar2(50), 
+                      GrossAnnualIncome varchar2(20), DebitCard char(1), OptNetBanking char(1), FatherName varchar2(50)); 
+
+
+Create table ResidentialAddress( ResidentialId int PRIMARY KEY, Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) );         
+
+Create table PermanentAddress( PermanentId int PRIMARY KEY, Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) );    
+
+
+Create table AccountDetails( AccountNumber number PRIMARY KEY, UserId Varchar2(20), CreatedOn date, AccountStatus char(1), AccountLock char(1), LoginPassword varchar2(50), TransactionPassword varchar2(50), AccountType varchar2(20), CurrentBalance Decimal(15,2), CustId  int references CustomerDetails (CustId));
+
+Create table Payee( BeneficiaryId int PRIMARY KEY, AccountNumber int references AccountDetails (AccountNumber) , BAccountNumber  int references AccountDetails (AccountNumber ), Nickname varchar2(20), BeneficiaryName varchar2(50 ) );
+
+
+Create table Admin ( AdminId int PRIMARY KEY, AdminPassword varchar2(20));
+
+Create table Approval( ApprovalId int primary key, CustId int references CustomerDetails(CustId), SRN int, AdminId int references Admin(AdminId) );
+
+
+Create table Transaction(TransactionId int PRIMARY KEY, ModeOfTransaction varchar2(20), ToAccount int references AccountDetails (AccountNumber) , FromAccount int references AccountDetails (AccountNumber) , AmountTransferred Decimal, Remarks varchar2(20), TransactionDate date);
+
+
+
+
+
+
+
+insert into CustomerDetails values (100,'Mr','Yashas ',' ','Raj',9945923530,'yashas@gmail.com',1234,'31-05-1999',100000,'Govt. Employee','Salary','2 to 5 Lac','Y','Y','Raj');
+insert into CustomerDetails values (101,'Mr','James','Jose','George',8197638993,'james07@gmail.com',1235,'10-11-2000',50000,'Private','Salary','< 2 Lac','N','Y','George');
+insert into CustomerDetails values (102,'Ms','Ananya',' ','Bhat',9945920124,'ananyabhatt@yahoo.com',1236,'14-07-1999',150000,'Self Employee','Salary','2 to 5 Lac','N','Y','Manoj');
+insert into CustomerDetails values (103,'Ms','Anjali',' ','Singh',7337735430,'anjalis33@gmail.com',1237,'22-12-2000',80000,'Others','Others','Above 5 lac','Y','Y','Harpreet Singh');
+insert into CustomerDetails values (104,'Ms','Karthika',' ','Reddy',9740119641,'karthika22@gmail.com',1238,'08-01-2000',95000,'Govt. Employee','Salary','2 to 5 Lac','N','Y','Karan Reddy');
+insert into CustomerDetails values (105,'Mr','Sidharth',' ','Sathish',8792235209,'sid8792235@gmail.com',1239,'10-05-1999',70000,'Private','Salary','< 2 Lac','Y','Y','Sathish');
+insert into CustomerDetails values (106,'Mr','Devano',' ','Thomas',8281905897,'devanothomas@gmail.com',1240,'16-12-1999',125000,'Self Employee','Salary','2 to 5 Lac','Y','Y','Thomas');
+insert into CustomerDetails values (107,'Mr','Rajath','Ganesh','Kiran',7848014890,'rajathkiran@gmail.com',1241,'21-05-1998',90000,'Others','Others','Above 5 lac','N','Y','Ganesh');
+insert into CustomerDetails values (108,'Ms','Vaibhavi',' ','Chabbra',9980901032,'vaibhavic@yahoo.com',1242,'22-11-2000',65000,'Govt. Employee','Salary','2 to 5 Lac','Y','Y','Mukul Chabbra');
+insert into CustomerDetails values (109,'Mr','Sanket',' ','Bajaj',8217811196,'sanketbaj@gmail.com',1243,'24-04-1999',100000,'Self Employee','Salary','2 to 5 Lac','N','Y','Karthik Bajaj');
+
+
+
+
+
+insert into ResidentialAddress values(1,'69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
+insert into ResidentialAddress values(2,'#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
+insert into ResidentialAddress values(3,'A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
+insert into ResidentialAddress values(4,'Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
+insert into ResidentialAddress values(5,'Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
+insert into ResidentialAddress values(6,'1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
+insert into ResidentialAddress values(7,'Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
+insert into ResidentialAddress values(8,'Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
+insert into ResidentialAddress values(9,'No 202','Devavrata, Sector-12',' ','Maharashtra','Mumbai',468889,108);
+insert into ResidentialAddress values(10,'No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
+
+
+
+
+
+insert into PermanentAddress values(10,'69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
+insert into PermanentAddress values(20,'#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
+insert into PermanentAddress values(30,'A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
+insert into PermanentAddress values(40,'Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
+insert into PermanentAddress values(50,'Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
+insert into PermanentAddress values(60,'1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
+insert into PermanentAddress values(70,'Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
+insert into PermanentAddress values(80,'Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
+insert into PermanentAddress values(90,'No 202','Devavrata', 'Sector-12','Maharashtra','Mumbai',468889,108);
+insert into PermanentAddress values(100,'No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
+
+
+
+
+
+insert into AccountDetails values(10001,'yashasr','15-05-2021','Y','N','Yashas@Raj3105',6555,'SAVINGS',100000,100);
+insert into AccountDetails values(10002,'jamesjgeorge','11-07-2021','Y','N','Jamesjose@3507',7001,'SAVINGS',50000,101);
+insert into AccountDetails values(10003,'ananybhat14','03-11-2020','Y','N','Ananyabhat@manoj4',4111,'SAVINGS',150000,102);
+insert into AccountDetails values(10004,'anjalisingh','12-02-2021','Y','N','AnjaliSingh@2212',1045,'SAVINGS',80000,103);
+insert into AccountDetails values(10005,'karthika','12-07-2021','Y','N','karth@Reddy09',1096,'SAVINGS',95000,104);
+insert into AccountDetails values(10006,'sid07','10-06-2020','Y','N','Sid07@ath',5034,'SAVINGS',70000,105);
+insert into AccountDetails values(10007,'devanot12','15-03-2021','Y','N','DevThom@12',5011,'SAVINGS',125000,106);
+insert into AccountDetails values(10008,'rajathkiran','23-01-2021','Y','N','RajathGanesh@123',1001,'SAVINGS',90000,107);
+insert into AccountDetails values(10009,'unnatic','12-06-2021','Y','N','Unnati@mukul990',7064,'SAVINGS',65000,108);
+insert into AccountDetails values(10010,'sanket','25-07-2021','Y','N','Sanket@Bajaj12',2333,'SAVINGS',100000,109);
+
+
+
+
+
+
+Insert into Payee Values(10,10001,10002,'James','James Jose George');
+Insert into Payee Values(20,10001,10003,'Ananya','Ananya Bhat');
+Insert into Payee Values(30,10003,10004,'Anjali','Anjali Singh');
+Insert into Payee Values(40,10003,10005,'Karthika','Karthika Reddy');
+Insert into Payee Values(50,10008,10007,'Devano','Devano Thomas');
+Insert into Payee Values(60,10008,10010,'Sanket','Sanket Bajaj');
+
+
+
+
+Insert into Admin values( 55599, 'Admin@123');
+
+
+
+Insert into Transaction values(1900,'IMPS',10002,10001,5000,'SUCCESS','10-06-2021');
+Insert into Transaction values(2000,'NEFT',10004,10003,15000,'SUCCESS','05-06-2021');
+Insert into Transaction values(1600,'RTGS',10006,10005,2000,'SUCCESS','04-06-2020');
+Insert into Transaction values(1500,'IMPS',10008,10007,25000,'SUCCESS','11-06-2020');
+Insert into Transaction values(1300,'NEFT',10010,10009,10000,'SUCCESS','05-07-2020');
+Insert into Transaction values(1200,'RTGS',10005,10003,40000,'SUCCESS','08-09-2020');
+Insert into Transaction values(2100,'IMPS',10006,10004,10000,'SUCCESS','02-03-2020');
+Insert into Transaction values(2300,'RTGS',10009,10008,15000,'SUCCESS','04-01-2021');
+Insert into Transaction values(2200,'NEFT',10010,10007,20000,'SUCCESS','05-09-2020');
+Insert into Transaction values(2500,'RTGS',10008,10003,5000,'SUCCESS','16-06-2021');
+Insert into Transaction values(2700,'IMPS',10006,10004,2000,'SUCCESS','12-03-2021');
+Insert into Transaction values(2800,'NEFT',10010,10007,20000,'SUCCESS','05-05-2021');
+
+
+
+
+
+insert into Approval values (1100,100,1,55599);
+insert into Approval values (1101,101,2,55599);
+insert into Approval values (1102,102,3,55599);
+insert into Approval values (1103,103,4,55599);
+insert into Approval values (1104,104,5,55599);
+insert into Approval values (1105,105,6,55599);
+insert into Approval values (1106,106,7,55599);
+insert into Approval values (1107,107,8,55599);
+insert into Approval values (1108,108,9,55599);
+insert into Approval values (1109,109,10,55599);
+
+
+
+
+
+Select * from Approval;
+Select * from CustomerDetails;
+Select * from ResidentialAddress;
+Select * from PermanentAddress;
+Select * from AccountDetails;
+Select * from Transaction;
+Select * from Admin;
+Select * from Approval;
+Select * from Payee;
+
+
+
+
