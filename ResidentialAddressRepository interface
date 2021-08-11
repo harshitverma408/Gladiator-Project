@@ -1,0 +1,20 @@
+package com.example.demo.layer3;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.layer2.ResidentialAddress;
+import com.example.demo.layer2.ResidentialAddressNotFoundException;
+
+
+
+
+@Repository
+public interface ResidentialAddressRepository {
+	
+	void insertResidentialAddress(ResidentialAddress ref);
+	ResidentialAddress selectResidentialAddress(int ResidentialId) throws ResidentialAddressNotFoundException;
+	List<ResidentialAddress> selectAllResidentialAddress();
+
+}
