@@ -1,9 +1,8 @@
-
-DROP TABLE CUSTOMERDETAILS;
+DROP TABLE CUSTOMERDETAILS CASCADE CONSTRAINTS;
 DROP TABLE RESIDENTIALADDRESS;
 DROP TABLE PERMANENTADDRESS;
-DROP TABLE ACCOUNTDETAILS;
-DROP TABLE ADMIN;
+DROP TABLE ACCOUNTDETAILS CASCADE CONSTRAINTS;
+DROP TABLE ADMIN CASCADE CONSTRAINTS;
 DROP TABLE TRANSACTION;
 DROP TABLE APPROVAL;
 DROP TABLE PAYEE;
@@ -12,24 +11,18 @@ DROP TABLE PAYEE;
 
 
 
-
-
-
-
 Create table CustomerDetails(CustId int PRIMARY KEY, Title varchar2(50),FirstName varchar2(50), MiddleName varchar2(50), LastName varchar2(50),MobileNumber varchar2(10), 
                       Email varchar2(50), AadharNumber int, DOB date, InitialAmount float, OccupationType varchar2(50), IncomeSource varchar2(50), 
-                      GrossAnnualIncome varchar2(20), DebitCard char(1), OptNetBanking char(1), FatherName varchar2(50)); 
+                      GrossAnnualIncome varchar2(20), DebitCard varchar2(2), OptNetBanking varchar2(2), FatherName varchar2(50)); 
 
 
-Create table ResidentialAddress( ResidentialId int PRIMARY KEY, Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) );         
+Create table ResidentialAddress(Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) PRIMARY KEY );         
 
-Create table PermanentAddress( PermanentId int PRIMARY KEY, Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) );    
+Create table PermanentAddress(Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) PRIMARY KEY);    
 
-
-Create table AccountDetails( AccountNumber number PRIMARY KEY, UserId Varchar2(20), CreatedOn date, AccountStatus char(1), AccountLock char(1), LoginPassword varchar2(50), TransactionPassword varchar2(50), AccountType varchar2(20), CurrentBalance Decimal(15,2), CustId  int references CustomerDetails (CustId));
+Create table AccountDetails( AccountNumber number UNIQUE NOT NULL, UserId Varchar2(20), CreatedOn date, AccountStatus char(1), AccountLock char(1), LoginPassword varchar2(50), TransactionPassword varchar2(50), AccountType varchar2(20), CurrentBalance Decimal(15,2), CustId  int references CustomerDetails (CustId) PRIMARY KEY);
 
 Create table Payee( BeneficiaryId int PRIMARY KEY, AccountNumber int references AccountDetails (AccountNumber) , BAccountNumber  int references AccountDetails (AccountNumber ), Nickname varchar2(20), BeneficiaryName varchar2(50 ) );
-
 
 Create table Admin ( AdminId int PRIMARY KEY, AdminPassword varchar2(20));
 
@@ -59,31 +52,31 @@ insert into CustomerDetails values (109,'Mr','Sanket',' ','Bajaj',8217811196,'sa
 
 
 
-insert into ResidentialAddress values(1,'69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
-insert into ResidentialAddress values(2,'#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
-insert into ResidentialAddress values(3,'A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
-insert into ResidentialAddress values(4,'Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
-insert into ResidentialAddress values(5,'Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
-insert into ResidentialAddress values(6,'1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
-insert into ResidentialAddress values(7,'Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
-insert into ResidentialAddress values(8,'Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
-insert into ResidentialAddress values(9,'No 202','Devavrata, Sector-12',' ','Maharashtra','Mumbai',468889,108);
-insert into ResidentialAddress values(10,'No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
+insert into ResidentialAddress values('69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
+insert into ResidentialAddress values('#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
+insert into ResidentialAddress values('A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
+insert into ResidentialAddress values('Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
+insert into ResidentialAddress values('Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
+insert into ResidentialAddress values('1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
+insert into ResidentialAddress values('Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
+insert into ResidentialAddress values('Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
+insert into ResidentialAddress values('No 202','Devavrata, Sector-12',' ','Maharashtra','Mumbai',468889,108);
+insert into ResidentialAddress values('No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
 
 
 
 
 
-insert into PermanentAddress values(10,'69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
-insert into PermanentAddress values(20,'#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
-insert into PermanentAddress values(30,'A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
-insert into PermanentAddress values(40,'Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
-insert into PermanentAddress values(50,'Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
-insert into PermanentAddress values(60,'1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
-insert into PermanentAddress values(70,'Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
-insert into PermanentAddress values(80,'Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
-insert into PermanentAddress values(90,'No 202','Devavrata', 'Sector-12','Maharashtra','Mumbai',468889,108);
-insert into PermanentAddress values(100,'No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
+insert into PermanentAddress values('69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
+insert into PermanentAddress values('#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
+insert into PermanentAddress values('A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
+insert into PermanentAddress values('Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
+insert into PermanentAddress values('Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
+insert into PermanentAddress values('1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
+insert into PermanentAddress values('Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
+insert into PermanentAddress values('Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
+insert into PermanentAddress values('No 202','Devavrata', 'Sector-12','Maharashtra','Mumbai',468889,108);
+insert into PermanentAddress values('No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
 
 
 
@@ -160,7 +153,3 @@ Select * from Transaction;
 Select * from Admin;
 Select * from Approval;
 Select * from Payee;
-
-
-
-
