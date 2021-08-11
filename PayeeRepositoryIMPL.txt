@@ -1,0 +1,38 @@
+package com.example.demo.layer3;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.layer2.Payee;
+import com.example.demo.layer2.PayeeNotFoundException;
+@Repository
+public class PayeeRepositoryIMPL extends BaseRepository implements PayeeRepository{
+
+	@Override
+	public void insertPayee(Payee ref) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public Payee selectPayee(int BenefeciaryId) throws PayeeNotFoundException {
+		EntityManager entityManager = getEntityManager();
+		return entityManager.find(Payee.class, BenefeciaryId);
+	}
+
+	
+	@Override
+	public List<Payee> selectAllPayee() {
+		System.out.println("PayeeRepository : Layer 3");
+		EntityManager entityManager = getEntityManager();
+		Query query = entityManager.createQuery("from Payee");
+		List<Payee> PayeeList = query.getResultList();
+		return PayeeList;
+	}
+	
+
+}

@@ -1,0 +1,64 @@
+package com.example.demo.layer5;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.demo.layer2.Payee;
+import com.example.demo.layer2.PayeeNotFoundException;
+import com.example.demo.layer3.PayeeRepositoryIMPL;
+
+@Controller
+@RequestMapping(value = "/payee")
+public class PayeeJPAController {
+	
+		
+		@Autowired
+		PayeeRepositoryIMPL p;
+		
+		
+		public PayeeJPAController() {
+			System.out.println("PayeeJPAController() Created");
+		}
+		
+		
+		@GetMapping
+		@ResponseBody
+		@RequestMapping(value = "/greet", method = RequestMethod.GET)
+		String greetEmployee() {
+			
+			return "Hello Payee";
+
+		}
+		
+		@GetMapping
+		@ResponseBody
+		@RequestMapping(value = "/getpayee/{beneficiaryId}")
+		public Payee getEmployee(@PathVariable int beneficiaryId) {
+			System.out.println("getpayee()...method ");
+			
+			try {
+				return p.selectPayee(beneficiaryId);
+			} catch (PayeeNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+			
+		}
+		
+		@GetMapping
+		@ResponseBody
+		@RequestMapping(value = "/getAllPayee")
+		public List<Payee> getAllPayee(){
+			return p.selectAllPayee();
+		}
+
+	}
+

@@ -1,0 +1,85 @@
+package com.example.demo.layer2;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+
+@Table(name="Payee")
+
+public class Payee {
+	
+	
+
+
+	/**
+	 * The persistent class for the PAYEE database table.
+	 * 
+	 */
+	
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		private long beneficiaryid;
+
+		private BigDecimal baccountnumber;
+
+		private String beneficiaryname;
+
+		private String nickname;
+
+		//bi-directional many-to-one association to Accountdetail
+	//	@ManyToOne
+	//	@JoinColumn(name="ACCOUNTNUMBER")
+	//	private Accountdetail accountdetail;
+
+		public Payee() {
+		}
+
+		public long getBeneficiaryid() {
+			return this.beneficiaryid;
+		}
+
+		public void setBeneficiaryid(long beneficiaryid) {
+			this.beneficiaryid = beneficiaryid;
+		}
+
+		public BigDecimal getBaccountnumber() {
+			return this.baccountnumber;
+		}
+
+		public void setBaccountnumber(java.math.BigDecimal baccountnumber) {
+			this.baccountnumber = baccountnumber;
+		}
+
+		public String getBeneficiaryname() {
+			return this.beneficiaryname;
+		}
+
+		public void setBeneficiaryname(String beneficiaryname) {
+			this.beneficiaryname = beneficiaryname;
+		}
+
+		public String getNickname() {
+			return this.nickname;
+		}
+
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
+		}
+
+	/*	public Accountdetail getAccountdetail() {
+			return this.accountdetail;
+		}
+
+		public void setAccountdetail(Accountdetail accountdetail) {
+			this.accountdetail = accountdetail;
+		}
+*/
+	
+
+}
