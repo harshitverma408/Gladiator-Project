@@ -1,0 +1,16 @@
+package com.example.demo.layer3;
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.example.demo.layer2.Transaction;
+import com.example.demo.layer2.TransactionNotFoundException;
+
+
+
+@Repository
+public interface TransactionRepository {
+	void insertTransaction(Transaction ref);
+	Transaction selectTransaction(int transactionid) throws TransactionNotFoundException;
+	List<Transaction> selectAllTransaction();
+
+
+}

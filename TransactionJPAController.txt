@@ -1,0 +1,65 @@
+package com.example.demo.layer5;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.demo.layer2.Transaction;
+import com.example.demo.layer2.TransactionNotFoundException;
+import com.example.demo.layer3.TransactionRepositoryIMPL;
+
+
+@Controller
+@RequestMapping(value = "/transaction")
+public class TransactionJPAController {
+	
+		
+		@Autowired
+		TransactionRepositoryIMPL t;
+		
+		
+		public TransactionJPAController() {
+			System.out.println("TransactionJPAController() Created");
+		}
+		
+		
+		@GetMapping
+		@ResponseBody
+		@RequestMapping(value = "/greet", method = RequestMethod.GET)
+		String greetEmployee() {
+			
+			return "Hello Transaction";
+
+		}
+		
+		@GetMapping
+		@ResponseBody
+		@RequestMapping(value = "/gettransaction/{transactionId}")
+		public Transaction getEmployee(@PathVariable int transactionId) {
+			System.out.println("gettransaction()...method ");
+			
+			try {
+				return t.selectTransaction(transactionId);
+			} catch (TransactionNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+			
+		}
+		
+		@GetMapping
+		@ResponseBody
+		@RequestMapping(value = "/getAllTransaction")
+		public List<Transaction> getAllTransaction(){
+			return t.selectAllTransaction();
+		}
+
+	}
+

@@ -1,0 +1,39 @@
+package com.example.demo.layer3;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+
+
+import com.example.demo.layer2.Transaction;
+import com.example.demo.layer2.TransactionNotFoundException;
+
+@Repository
+public class TransactionRepositoryIMPL extends BaseRepository implements TransactionRepository{
+
+	@Override
+	public void insertTransaction(Transaction ref) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Transaction selectTransaction(int TransactionId) throws TransactionNotFoundException {
+		EntityManager entityManager = getEntityManager();
+		return entityManager.find(Transaction.class, TransactionId);
+	}
+
+	@Override
+	public List<Transaction> selectAllTransaction() {
+		System.out.println("TransactionRepository : Layer 3");
+		EntityManager entityManager = getEntityManager();
+		Query query = entityManager.createQuery("from Transaction");
+		List<Transaction> TransactionList = query.getResultList();
+		return TransactionList;
+	}
+	
+
+}

@@ -1,0 +1,95 @@
+package com.example.demo.layer2;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.*;
+
+
+
+@Entity
+@Table(name="Transaction")
+@NamedQuery(name="Transaction.findAll", query="SELECT t FROM Transaction t")
+public class Transaction implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	
+
+
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		private long transactionid;
+
+		private BigDecimal amounttransferred;
+
+		private BigDecimal fromaccount;
+
+		private String modeoftransaction;
+
+		private String remarks;
+
+		@Temporal(TemporalType.DATE)
+		private Date transactiondate;
+
+		//bi-directional many-to-one association to Accountdetail
+	public Transaction() {
+		}
+
+		public long getTransactionid() {
+			return this.transactionid;
+		}
+
+		public void setTransactionid(long transactionid) {
+			this.transactionid = transactionid;
+		}
+
+		public BigDecimal getAmounttransferred() {
+			return this.amounttransferred;
+		}
+
+		public void setAmounttransferred(BigDecimal amounttransferred) {
+			this.amounttransferred = amounttransferred;
+		}
+
+		public BigDecimal getFromaccount() {
+			return this.fromaccount;
+		}
+
+		public void setFromaccount(BigDecimal fromaccount) {
+			this.fromaccount = fromaccount;
+		}
+
+		public String getModeoftransaction() {
+			return this.modeoftransaction;
+		}
+
+		public void setModeoftransaction(String modeoftransaction) {
+			this.modeoftransaction = modeoftransaction;
+		}
+
+		public String getRemarks() {
+			return this.remarks;
+		}
+
+		public void setRemarks(String remarks) {
+			this.remarks = remarks;
+		}
+
+		public Date getTransactiondate() {
+			return this.transactiondate;
+		}
+
+		public void setTransactiondate(Date transactiondate) {
+			this.transactiondate = transactiondate;
+		}
+
+		/*public Accountdetail getAccountdetail() {
+			return this.accountdetail;
+		}
+
+		public void setAccountdetail(Accountdetail accountdetail) {
+			this.accountdetail = accountdetail;
+		}*/
+
+	
+}

@@ -1,0 +1,8 @@
+package com.example.demo.layer2;
+
+public class TransactionNotFoundException extends Exception {
+	public TransactionNotFoundException(String str) {
+		super(str);
+	}
+
+}
