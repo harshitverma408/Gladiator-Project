@@ -1,6 +1,4 @@
 DROP TABLE CUSTOMERDETAILS CASCADE CONSTRAINTS;
-DROP TABLE RESIDENTIALADDRESS;
-DROP TABLE PERMANENTADDRESS;
 DROP TABLE ACCOUNTDETAILS CASCADE CONSTRAINTS;
 DROP TABLE ADMIN CASCADE CONSTRAINTS;
 DROP TABLE TRANSACTION;
@@ -13,12 +11,8 @@ DROP TABLE PAYEE;
 
 Create table CustomerDetails(CustId int PRIMARY KEY, Title varchar2(50),FirstName varchar2(50), MiddleName varchar2(50), LastName varchar2(50),MobileNumber varchar2(10), 
                       Email varchar2(50), AadharNumber int, DOB date, InitialAmount float, OccupationType varchar2(50), IncomeSource varchar2(50), 
-                      GrossAnnualIncome varchar2(20), DebitCard varchar2(2), OptNetBanking varchar2(2), FatherName varchar2(50)); 
+                      GrossAnnualIncome varchar2(20), DebitCard varchar2(2), OptNetBanking varchar2(2), FatherName varchar2(50),Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number); 
 
-
-Create table ResidentialAddress(Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) PRIMARY KEY );         
-
-Create table PermanentAddress(Line1 varchar2(100),Line2 varchar2(100),Landmark varchar2(100), State Varchar2(50), City varchar2(50), Pincode number, CustId  int references CustomerDetails (CustId) PRIMARY KEY);    
 
 Create table AccountDetails( AccountNumber number UNIQUE NOT NULL, UserId Varchar2(20), CreatedOn date, AccountStatus varchar2(1), AccountLock varchar2(1), LoginPassword varchar2(50), TransactionPassword varchar2(50), AccountType varchar2(20), CurrentBalance Decimal(15,2), CustId  int references CustomerDetails (CustId) PRIMARY KEY);
 
@@ -37,47 +31,16 @@ Create table Transaction(TransactionId int PRIMARY KEY, ModeOfTransaction varcha
 
 
 
-insert into CustomerDetails values (100,'Mr','Yashas ',' ','Raj',9945923530,'yashas@gmail.com',1234,'31-05-1999',100000,'Govt. Employee','Salary','2 to 5 Lac','Y','Y','Raj');
-insert into CustomerDetails values (101,'Mr','James','Jose','George',8197638993,'james07@gmail.com',1235,'10-11-2000',50000,'Private','Salary','< 2 Lac','N','Y','George');
-insert into CustomerDetails values (102,'Ms','Ananya',' ','Bhat',9945920124,'ananyabhatt@yahoo.com',1236,'14-07-1999',150000,'Self Employee','Salary','2 to 5 Lac','N','Y','Manoj');
-insert into CustomerDetails values (103,'Ms','Anjali',' ','Singh',7337735430,'anjalis33@gmail.com',1237,'22-12-2000',80000,'Others','Others','Above 5 lac','Y','Y','Harpreet Singh');
-insert into CustomerDetails values (104,'Ms','Karthika',' ','Reddy',9740119641,'karthika22@gmail.com',1238,'08-01-2000',95000,'Govt. Employee','Salary','2 to 5 Lac','N','Y','Karan Reddy');
-insert into CustomerDetails values (105,'Mr','Sidharth',' ','Sathish',8792235209,'sid8792235@gmail.com',1239,'10-05-1999',70000,'Private','Salary','< 2 Lac','Y','Y','Sathish');
-insert into CustomerDetails values (106,'Mr','Devano',' ','Thomas',8281905897,'devanothomas@gmail.com',1240,'16-12-1999',125000,'Self Employee','Salary','2 to 5 Lac','Y','Y','Thomas');
-insert into CustomerDetails values (107,'Mr','Rajath','Ganesh','Kiran',7848014890,'rajathkiran@gmail.com',1241,'21-05-1998',90000,'Others','Others','Above 5 lac','N','Y','Ganesh');
-insert into CustomerDetails values (108,'Ms','Vaibhavi',' ','Chabbra',9980901032,'vaibhavic@yahoo.com',1242,'22-11-2000',65000,'Govt. Employee','Salary','2 to 5 Lac','Y','Y','Mukul Chabbra');
-insert into CustomerDetails values (109,'Mr','Sanket',' ','Bajaj',8217811196,'sanketbaj@gmail.com',1243,'24-04-1999',100000,'Self Employee','Salary','2 to 5 Lac','N','Y','Karthik Bajaj');
-
-
-
-
-
-insert into ResidentialAddress values('69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
-insert into ResidentialAddress values('#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
-insert into ResidentialAddress values('A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
-insert into ResidentialAddress values('Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
-insert into ResidentialAddress values('Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
-insert into ResidentialAddress values('1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
-insert into ResidentialAddress values('Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
-insert into ResidentialAddress values('Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
-insert into ResidentialAddress values('No 202','Devavrata, Sector-12',' ','Maharashtra','Mumbai',468889,108);
-insert into ResidentialAddress values('No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
-
-
-
-
-
-insert into PermanentAddress values('69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070,100);
-insert into PermanentAddress values('#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102,101);
-insert into PermanentAddress values('A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107,102);
-insert into PermanentAddress values('Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033,103);
-insert into PermanentAddress values('Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007,104);
-insert into PermanentAddress values('1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001,105);
-insert into PermanentAddress values('Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040,106);
-insert into PermanentAddress values('Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003,107);
-insert into PermanentAddress values('No 202','Devavrata', 'Sector-12','Maharashtra','Mumbai',468889,108);
-insert into PermanentAddress values('No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027,109);
-
+insert into CustomerDetails values (100,'Mr','Yashas ',' ','Raj',9945923530,'yashas@gmail.com',1234,'31-05-1999',100000,'Govt. Employee','Salary','2 to 5 Lac','Y','Y','Raj','69/2, Jayanagar 7th Block','Yediyure','Near BSNL Office','Karnataka','Bangalore',560070);
+insert into CustomerDetails values (101,'Mr','James','Jose','George',8197638993,'james07@gmail.com',1235,'10-11-2000',50000,'Private','Salary','< 2 Lac','N','Y','George','#8034, Sobha Daffodil','Sector-2, H.S.R Layout','Near DHL','Karnataka','Bangalore',560102);
+insert into CustomerDetails values (102,'Ms','Ananya',' ','Bhat',9945920124,'ananyabhatt@yahoo.com',1236,'14-07-1999',150000,'Self Employee','Salary','2 to 5 Lac','N','Y','Manoj','A-165 ','Bel society','Near Govt College ','Haryana','Panchkula',134107);
+insert into CustomerDetails values (103,'Ms','Anjali',' ','Singh',7337735430,'anjalis33@gmail.com',1237,'22-12-2000',80000,'Others','Others','Above 5 lac','Y','Y','Harpreet Singh','Flat no 802','Siddhashila Madhuban','Near Post Office','Pune','Punawale',411033);
+insert into CustomerDetails values (104,'Ms','Karthika',' ','Reddy',9740119641,'karthika22@gmail.com',1238,'08-01-2000',95000,'Govt. Employee','Salary','2 to 5 Lac','N','Y','Karan Reddy','Flat no- 32','Sai nagar','Near HDFC Bank','Telangana','Hyderabad',511007);
+insert into CustomerDetails values (105,'Mr','Sidharth',' ','Sathish',8792235209,'sid8792235@gmail.com',1239,'10-05-1999',70000,'Private','Salary','< 2 Lac','Y','Y','Sathish','1309 Marian Solace Apartment','Derebail','Near Ford Showroom','Kerala','Kannur',670001);
+insert into CustomerDetails values (106,'Mr','Devano',' ','Thomas',8281905897,'devanothomas@gmail.com',1240,'16-12-1999',125000,'Self Employee','Salary','2 to 5 Lac','Y','Y','Thomas','Flat no 35 Asset Apartments','AnnanNagar','opposite to SS SuperMarket','TamilNadu','Chennai',600040);
+insert into CustomerDetails values (107,'Mr','Rajath','Ganesh','Kiran',7848014890,'rajathkiran@gmail.com',1241,'21-05-1998',90000,'Others','Others','Above 5 lac','N','Y','Ganesh','Flat 101','Benco Apartment','Near Shridi Sai Baba Temple','Karnataka','Mangalore',575003);
+insert into CustomerDetails values (108,'Ms','Vaibhavi',' ','Chabbra',9980901032,'vaibhavic@yahoo.com',1242,'22-11-2000',65000,'Govt. Employee','Salary','2 to 5 Lac','Y','Y','Mukul Chabbra','No 202','Devavrata, Sector-12',' ','Maharashtra','Mumbai',468889);
+insert into CustomerDetails values (109,'Mr','Sanket',' ','Bajaj',8217811196,'sanketbaj@gmail.com',1243,'24-04-1999',100000,'Self Employee','Salary','2 to 5 Lac','N','Y','Karthik Bajaj','No 12 Arya Samaj Market ','Subhash Nagar','Near Vaidehi Hospital','Delhi','Delhi',110027);
 
 
 
@@ -142,7 +105,7 @@ insert into Approval values (1109,109,10,55599);
 
 
 
-
+commit;
 
 Select * from Approval;
 Select * from CustomerDetails;
