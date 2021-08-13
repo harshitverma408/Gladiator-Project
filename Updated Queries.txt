@@ -45,16 +45,16 @@ insert into CustomerDetails values (109,'Mr','Sanket',' ','Bajaj',8217811196,'sa
 
 
 
-insert into AccountDetails values(10001,'yashasr','15-05-2021','Y','N','Yashas@Raj3105',6555,'SAVINGS',100000,100);
-insert into AccountDetails values(10002,'jamesjgeorge','11-07-2021','Y','N','Jamesjose@3507',7001,'SAVINGS',50000,101);
-insert into AccountDetails values(10003,'ananybhat14','03-11-2020','Y','N','Ananyabhat@manoj4',4111,'SAVINGS',150000,102);
-insert into AccountDetails values(10004,'anjalisingh','12-02-2021','Y','N','AnjaliSingh@2212',1045,'SAVINGS',80000,103);
-insert into AccountDetails values(10005,'karthika','12-07-2021','Y','N','karth@Reddy09',1096,'SAVINGS',95000,104);
-insert into AccountDetails values(10006,'sid07','10-06-2020','Y','N','Sid07@ath',5034,'SAVINGS',70000,105);
-insert into AccountDetails values(10007,'devanot12','15-03-2021','Y','N','DevThom@12',5011,'SAVINGS',125000,106);
-insert into AccountDetails values(10008,'rajathkiran','23-01-2021','Y','N','RajathGanesh@123',1001,'SAVINGS',90000,107);
-insert into AccountDetails values(10009,'unnatic','12-06-2021','Y','N','Unnati@mukul990',7064,'SAVINGS',65000,108);
-insert into AccountDetails values(10010,'sanket','25-07-2021','Y','N','Sanket@Bajaj12',2333,'SAVINGS',100000,109);
+insert into AccountDetails values(10001,'yashasr','15-05-2021','Y','N','Yashas@Raj3105',6555,'SAVINGS',95000,100);
+insert into AccountDetails values(10002,'jamesjgeorge','11-07-2021','Y','N','Jamesjose@3507',7001,'SAVINGS',55000,101);
+insert into AccountDetails values(10003,'ananybhat14','03-11-2020','Y','N','Ananyabhat@manoj4',4111,'SAVINGS',90000,102);
+insert into AccountDetails values(10004,'anjalisingh','12-02-2021','Y','N','AnjaliSingh@2212',1045,'SAVINGS',83000,103);
+insert into AccountDetails values(10005,'karthika','12-07-2021','Y','N','karth@Reddy09',1096,'SAVINGS',9300,104);
+insert into AccountDetails values(10006,'sid07','10-06-2020','Y','N','Sid07@ath',5034,'SAVINGS',51000,105);
+insert into AccountDetails values(10007,'devanot12','15-03-2021','Y','N','DevThom@12',5011,'SAVINGS',108000,106);
+insert into AccountDetails values(10008,'rajathkiran','23-01-2021','Y','N','RajathGanesh@123',1001,'SAVINGS',22000,107);
+insert into AccountDetails values(10009,'unnatic','12-06-2021','Y','N','Unnati@mukul990',7064,'SAVINGS',70000,108);
+insert into AccountDetails values(10010,'sanket','25-07-2021','Y','N','Sanket@Bajaj12',2333,'SAVINGS',110000,109);
 
 
 
