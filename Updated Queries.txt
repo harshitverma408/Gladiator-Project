@@ -107,10 +107,7 @@ insert into Approval values (1109,109,10,55599);
 
 commit;
 
-Select * from Approval;
 Select * from CustomerDetails;
-Select * from ResidentialAddress;
-Select * from PermanentAddress;
 Select * from AccountDetails;
 Select * from Transaction;
 Select * from Admin;
