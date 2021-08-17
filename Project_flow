@@ -1,0 +1,91 @@
+-> PPT
+
+-> Live Demo
+	1. Show the update panel
+	
+	2. Login --> 	a. Gopi , Gopi@123
+	(Gopi)		b. Harshit , Harshit@123
+			c. Pritesh , Pritesh@123 
+
+	3. Dashboard --> a. User Profile
+(Nikhila,Himanshu)	 b. Account Details
+			 c. View All Payees
+			 d. Add Payee --> Harshit, 10008 
+			 e. View All Payee
+	
+	4. Fund-Transfer Module
+	(Harshit)	 -> 10008
+			 -> Show Email
+			 -> Account Statement
+	
+	5. Customer Creation,Account Creation
+	(Pritesh)	 -> Create Entire Customer
+			 -> Account Creation
+
+
+--> Postman Demo
+
+1. Creating a customer
+
+	http://localhost:8085/customer/addCust
+	
+	{
+        "debitcard": "Y",
+        "dob": "1999-05-26",
+        "email": "harshitverma408@gmail.com",
+        "fathername": "Raj",
+        "firstname": "Himanshu",
+        "grossannualincome": "2 to 5 Lac",
+        "incomesource": "Salary",
+        "initialamount": 100000.0,
+        "lastname": "Sharma",
+        "middlename": " ",
+        "mobilenumber": "9945923530",
+        "occupationtype": "Govt. Employee",
+        "optnetbanking": "Y",
+        "city": "Bangalore",
+        "landmark": "near govt college",
+        "line1": "Westline avenue",
+        "line2": "Yediyure",
+        "pincode": 560070,
+        "state": "Karnataka",
+        "title": "Mr",
+        "aadharnumber": 1245
+    }
+
+2. View All Customers -> http://localhost:8085/customer/getAllCustomers
+
+3. Get customer -> http://localhost:8085/customer/getCustomer/109
+
+
+4. Creating an account --> http://localhost:8085/account/addAccount/{custId}
+
+	{
+    "accounttype": "SAVINGS",
+    "currentbalance": 125000,
+    "loginpassword": "Himanshu@123",
+    "transactionpassword": 2345,
+    "userid": "Himanshu"
+	}
+
+5. View Account --> http://localhost:8085/account/getAccountOnAccno/{accno}
+
+6. Trying to login --> http://localhost:8085/loginpage/login/Himanshu/Himanshu@123
+
+7. Show unapproved Accounts --> http://localhost:8085/approval/accToApprove
+
+8. Approve account --> http://localhost:8085/approval/approveAccount/{custId}/{adminId}
+
+9. Check email
+
+10. Try login again
+
+11. SetNewPassword --> http://localhost:8085/setPass/login/Himanshu@3344/{Accountnumber}
+
+12. Transaction --> http://localhost:8085/transfer/addFund/{toAccNo}/{fromAccNo}
+
+	{ 
+	"amounttransferred":1000,
+	"modeoftransaction":"RTGS"
+	}
+	
