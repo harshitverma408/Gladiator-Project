@@ -1,0 +1,19 @@
+
+<h1>Welcome admin </h1>
+<table>
+    <tr>
+        <th>CustId</th>
+        <th>Account type</th>
+        <th>Created on </th>
+        <th>select</th>
+    </tr>
+    <tr *ngFor="let a of allApprovals">
+        <td>{{a.custId}}</td>
+        <td>{{a.accounttype}}</td>
+        <td>{{a.createdon}}</td>
+        <!-- <td>
+            <input type="number" name="srn" ([ngModel])="appr.srn">
+        </td> -->
+        <td><button (click)="approve()">Approve</button></td>
+    </tr>
+</table>

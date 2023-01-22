@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Bank</title>
+</head>
+
+  <body>
+  <div class="container">
+    <h1 class="main-header">Open A Savings Account</h1>
+    <hr>
+    <form id="app-form" action="" name="regForm">
+    <fieldset class="sub-container" id="basic-details">
+      <h2 class="sub-heading">Personal Details</h2>
+      <hr>
+        <label for="dropdown" class="standard-label">
+          Title<span class="required">*</span>
+          <br>
+          <select [(ngModel)]="cust.title" [ngModelOptions]="{standalone: true}" id="dropdown" class="standard-select" required>
+            <option value="select" disabled selected>Select Title</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Ms">Ms</option>
+            <option value="Dr">Dr</option>
+            <option value="Prof">Prof</option>
+          </select>
+        </label>
+        <label for="firstname" class="standard-label">
+          First Name<span class="required">*</span>
+          <input class="standard-input" name="firstname"   [(ngModel)]="cust.firstname" id="firstname"  type="text" placeholder="First name..." required formControlName="name">
+        </label>
+  
+       
+                        
+  
+        <label for="middlenames" class="standard-label">
+          Middle Names (If Applicable)
+          <input class="standard-input" name="middlename"[(ngModel)]="cust.middlename" id="middlename" type="text" placeholder="Middle names..." [ngModelOptions]="{standalone: true}">
+        </label>
+
+        <label for="lastname" class="standard-label">
+          Last Name<span class="required">*</span>
+          <input class="standard-input" name="lastname"[(ngModel)]="cust.lastname" id="lastname" type="text" placeholder="Last name..." required [ngModelOptions]="{standalone: true}">
+        </label>
+
+        
+
+        <label for="Father's name" class="standard-label">
+            Father's Name<span class="required">*</span>
+            <input class="standard-input" name="lastname"[(ngModel)]="cust.fathername" id="fathername" type="text" placeholder="Father's name..." required [ngModelOptions]="{standalone: true}">
+          </label>
+
+        
+
+        <label for="phone-number" class="standard-label">
+          Phone Number<span class="required">*</span>
+          <input class="standard-input" type="tel" id="phone" name="phone"[(ngModel)]="cust.mobilenumber" pattern='^\+?\d{10,12}' placeholder="Example: 01925999111" required [ngModelOptions]="{standalone: true}">
+        </label>
+
+       
+
+        <label for="email-address" class="standard-label">
+          Email<span class="required">*</span>
+          <input class="standard-input" id="email-address"name="email"[(ngModel)]="cust.email" type="email" placeholder="Your email address..." required [ngModelOptions]="{standalone: true}">
+        </label>
+
+        
+
+        <label for="aadharnumber" class="standard-label">
+            Aadhar Number<span class="required">*</span>
+            <input class="standard-input" type="tel" id="phone" name="aadharnumber"[(ngModel)]="cust.aadharnumber" pattern='^\+?\d{10,12}' placeholder="Aadhar number" required [ngModelOptions]="{standalone: true}">
+          </label>
+
+         
+           <!-- <label for="myfile">Upload Aadhar Card  </label>
+            <input type="file" id="myfile" name="myfile"><br>  -->
+          <!-- <br><label for="Pancard" class="standard-label">
+            Pan Card Number
+            <input class="standard-input" type="tel" id="phone" name="phone" pattern='^\+?\d{10,12}' placeholder="Aadhar number" required>
+          </label> -->
+          <!-- <label for="myfile">Upload Pan Card  </label>
+            <input type="file" id="myfile" name="myfile">-->
+       <br> <label for="DOB" class="standard-label"> 
+          Date of Birth<span class="required">*</span>
+          <input class="standard-input" type="date" name="DOB" [(ngModel)]="cust.dob"
+          id="DOB" required [ngModelOptions]="{standalone: true}">
+        </label>
+
+        
+
+        <p>Residential Address</p>
+        <label for="line1" class="standard-label">
+            Address line 1<span class="required">*</span>
+            <input class="standard-input" type="text"name="line1" [(ngModel)]="cust.line1" required [ngModelOptions]="{standalone: true}">
+          </label>
+
+          
+
+          <label for="line2" class="standard-label">
+            Address line 2<span class="required">*</span>
+            <input class="standard-input" type="text"name="line2"[(ngModel)]="cust.line2" [ngModelOptions]="{standalone: true}">
+          </label>
+
+          
+
+          <label for="town-city" class="standard-label">
+            Landmark
+            <input class="standard-input" type="text" name="landmark" [(ngModel)]="cust.landmark" required [ngModelOptions]="{standalone: true}" >
+          </label>
+
+         
+
+          <label for="line2" class="standard-label">
+            State<span class="required">*</span>
+            <input class="standard-input"  name=" state" [(ngModel)]="cust.state"type="text"  [ngModelOptions]="{standalone: true}">
+          </label>
+
+          
+
+          <label for="county" class="standard-label">
+            City<span class="required">*</span>
+            <input class="standard-input" name="city" [(ngModel)]="cust.city"type="text" [ngModelOptions]="{standalone: true}">
+          </label>
+
+         
+
+          <label for="postcode" class="standard-label">
+            Post Code<span class="required">*</span>
+            <input class="standard-input"name="postcode"[(ngModel)]="cust.pincode" type="text" maxlength="8" required [ngModelOptions]="{standalone: true}">
+          </label>
+
+         
+          <!-- <p>Permanent Address</p>
+          <input style="zoom:0.5" type="checkbox">Permanent Address same as Mailing Address
+        <label for="line1" class="standard-label">
+            Address line 1<span class="required">*</span>
+            <input class="standard-input" type="text" required>
+          </label>
+          <label for="line2" class="standard-label">
+            Address line 2<span class="required">*</span>
+            <input class="standard-input" type="text">
+          </label>
+          <label for="town-city" class="standard-label">
+            Landmark
+            <input class="standard-input" type="text" required>
+          </label>
+          <label for="line2" class="standard-label">
+            State<span class="required">*</span>
+            <input class="standard-input" type="text">
+          </label>
+          <label for="county" class="standard-label">
+            City<span class="required">*</span>
+            <input class="standard-input" type="text">
+          </label>
+          <label for="postcode" class="standard-label">
+            Post Code<span class="required">*</span>
+            <input class="standard-input" type="text" maxlength="8" required>
+          </label> -->
+          <p>Occupation Details</p>
+          <label for="dropdown" class="standard-label">
+            Occupation Type<span class="required">*</span>
+            <br>
+            <select  id="dropdown"  [(ngModel)]="cust.occupationtype"class="standard-select" required [ngModelOptions]="{standalone: true}">
+              <option value="select" disabled selected></option>
+              <option value="Mr">Business</option>
+              <option value="Mrs">Corporate Job</option>
+              <option value="Miss">House Wife</option>
+              <option value="Ms">Farmer</option>
+
+              
+              
+            </select>
+          </label>
+
+         
+
+          <label for="dropdown" class="standard-label">
+            Source Of Income<span class="required">*</span>
+            <br>
+            <select  id="dropdown" [(ngModel)]="cust.incomesource"  class="standard-select" required [ngModelOptions]="{standalone: true}">
+              <option value="select" disabled selected></option>
+              <option value="Mr">Business</option>
+              <option value="Mrs">Salary</option>
+              
+              
+            </select>
+
+          
+
+          </label>
+          <label for="dropdown" class="standard-label">
+            Gross Annual Income<span class="required">*</span>
+            <br>
+            <select  id="dropdown" [(ngModel)]="cust.grossannualincome"class="standard-select" required [ngModelOptions]="{standalone: true}">
+              <option value="select" disabled selected></option>
+              <option value="Mr">Less than 10,000</option>
+              <option value="Mrs">Less than 50,000</option>
+              <option value="Miss">Less than 1,00,000</option>
+              
+            </select>
+          </label>
+
+         
+          
+          <div class="form-check">
+            <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+            <label class="form-check-label" for="flexCheckDefault">
+              Apply for a Debit Card
+            </label>
+            <select [(ngModel)]="cust.debitcard" >
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
+              <!-- <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option> -->
+            </select>
+          </div>
+          <br>
+          <!-- <input style="zoom:0.5" type="checkbox">Opt for Netbanking<br> -->
+          <label class="form-check-label" for="flexCheckDefault">
+            Opt for Net Banking 
+          </label>
+          <select [(ngModel)]="cust.optnetbanking" >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+           
+            <!-- <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option> -->
+          </select>
+        
+      <br>  
+          <!-- <input style="zoom:0.5" type="checkbox">I agree that the above mentioned details are true to my knowledge. -->
+
+         </fieldset> 
+        </form>
+         <button (click)="home()"  type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Submit Response">
+          Submit
+        </button> 
+       
+        
+        </div>
+      <!-- </fieldset>
+      
+      <fieldset class="sub-container" id="address-history">
+        <h2 class="sub-heading">Address History</h2>
+        <hr>
+        
+        <p id="non-uk">We're really sorry. We currently only offer banking services to UK residents.</p>
+        <div id="current-address">
+          <h3 class="small-heading">Current Address</h3>
+          <label for="line1" class="standard-label">
+            Address line 1<span class="required">*</span>
+            <input class="standard-input" type="text" required>
+          </label>
+          <label for="line2" class="standard-label">
+            Address line 2
+            <input class="standard-input" type="text">
+          </label>
+          <label for="town-city" class="standard-label">
+            Town/City<span class="required">*</span>
+            <input class="standard-input" type="text" required>
+          </label>
+          <label for="county" class="standard-label">
+            County
+            <input class="standard-input" type="text">
+          </label>
+          <label for="postcode" class="standard-label">
+            Post Code<span class="required">*</span>
+            <input class="standard-input" type="text" maxlength="8" required>
+          </label>
+          
+        </div>
+        <div id="previous-address">
+          <h3 class="small-heading">Previous Address</h3>
+          <label for="line1" class="standard-label">
+            Address line 1<span class="required">*</span>
+            <input class="standard-input" type="text">
+          </label>
+          <label for="line2" class="standard-label">
+            Address line 2
+            <input class="standard-input" type="text">
+          </label>
+          <label for="town-city" class="standard-label">
+            Town/City<span class="required">*</span>
+            <input class="standard-input" type="text">
+          </label>
+          <label for="county" class="standard-label">
+            County
+            <input class="standard-input" type="text">
+          </label>
+          <label for="postcode" class="standard-label">
+            Post Code<span class="required">*</span>
+            <input class="standard-input" type="text" maxlength="8">
+          </label>
+        </div>
+        <button type="button" id="get-consent">Continue</button>
+      </fieldset>
+
+      <fieldset class="sub-container" id="your-consent">
+        <h2 class="sub-heading">Your Consent</h2>
+        <hr>
+        <label class="standard-label" id="credit-search" for="credit-search">
+          Tick the box below to allow the bank to use the details you have provided to conduct a credit search if necessary.
+          <br>
+        <input type="checkbox" id="credit-click" name="credit-search"><br>
+        </label>
+        <label class="standard-label" for="info-request" id="info-request">
+          Tick the box below to allow the bank to contact you via email if further information is needed to progress your application.
+          <br>
+          <input type="checkbox" id="info-click" name="info-request"><br>
+        </label>
+        <input id="submit-app" type="submit" name="submit" value="Submit Application" onclick="logValues()">
+      </fieldset> -->
+    <!-- </form> -->
+  <!-- </div> -->
+</body>
+</html>
+<router-outlet></router-outlet>

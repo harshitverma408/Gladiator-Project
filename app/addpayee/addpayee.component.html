@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Bank</title>
+</head>
+
+  <body>
+  <div class="container">
+    <h1 class="main-header">Add Payee</h1>
+    <hr>
+    <form id="app-form" action="">
+    <fieldset class="sub-container" id="basic-details">
+      <hr>
+        
+        <label for="beneficiaryname" class="standard-label">
+            Beneficiary Name<span class="required">*</span>
+          <input class="standard-input" name="beneficiaryname" [(ngModel)]="payee.beneficiaryname" id="beneficiaryname" type="text" placeholder="Beneficiary Name" required>
+        </label>
+        <label for="beneficiaryaccno" class="standard-label">
+            Beneficiary Account Number
+          <input class="standard-input" name="beneficiaryaccno" id="beneficiaryaccno"[(ngModel)]="payee.baccountnumber" type="text" placeholder="Beneficiary Account No">
+        </label>
+        
+          <input style="zoom:0.5" type="checkbox">Save Beneficiary<br>
+          <label for="nickname" class="standard-label">
+            Nick Name<span class="required">*</span>
+            <input class="standard-input" name="nickname"  [(ngModel)]="payee.nickname" id="nickname" type="text" placeholder="Nick Name" required>
+          </label>
+          </fieldset>
+        </form>
+        <button type="Submit" (click)="addPayee()"></button>
+        </div>
+        
+      
+</body>
+</html>

@@ -1,0 +1,24 @@
+.header {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(43, 7, 141);
+    padding: 20px;
+    text-align: center;
+    color:white;
+  }
+  h1{
+      text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+  .modal-body{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 6%;
+    margin-left: 10%;
+    width: 80%;
+    padding: 40px;
+    background: lightgray;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 0px;
+  }
